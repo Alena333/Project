@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import LoginContainer from './containers/LoginContainer'
+import MainUserContainer from './containers/MainUserContainer'
+import MainAdminContainer from './containers/MainAdminContainer'
+import { connect } from 'react-redux'
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  render() {
+    if (this.props.auth.authenticated === false) {
+      return <LoginContainer/>
+    }
+
+    if (localStorage.getItem('is_admin') === "true"){
+      return <MainAdminContainer/>
+    }
+    else{
+      return <MainUserContainer/>
+    }
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth
+  }
+}
+
+export default connect(mapStateToProps)(App)

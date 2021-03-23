@@ -1,0 +1,13 @@
+export const LOAD_NOTES = 'LOAD_NOTES'
+export const ADD_NOTE = 'ADD_NOTE'
+export const UPDATE_NOTE = 'UPDATE_NOTE'
+export const DELETE_NOTE = 'DELETE_NOTE'
+
+export const LOAD_PROJECTS = 'LOAD_PROJECTS'
+
+export const LOAD_CATEGORIES = 'LOAD_CATEGORIES'
+
+export const LOAD_USERS = 'LOAD_USERS'
+
+export const AUTHENTICATED = 'AUTHENTICATED'
+export const UnAUTHENTICATED = 'UnAUTHENTICATED'
